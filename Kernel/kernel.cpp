@@ -5,5 +5,5 @@
 
 void main(void)
 {
-    PrintString("Hello World!", 0x0F);
+    Debug("Kernel loaded!\n", 0x00);
 }
