@@ -19,7 +19,7 @@ i386 elf gcc and nasm
 ### 📄 Compiling
 Run the make.sh script using <br /> `chmod +x ./make.sh` <br /> `./make.sh`
 ### 🚀 Running
-use `qemu-system-x86_64 -drive format=raw,file="FolhaOS.img"`
+use `qemu-system-x86_64 -drive format=raw,file="DuckOS.img"`
 
 # 🤝 Contribute
 For those who want to contribute to FolhaOS, you can help me starring/forking this project or help with code using pull requests.
