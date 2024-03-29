@@ -40,3 +40,18 @@ void PrintString(const CHAR* str, BYTE color)
         DrawChar(ProggyCleanTT+(str[i]*8), color);
     }
 }
+
+void Debug(const CHAR* str, int debug)
+{
+    switch (debug)
+    {
+        case 0:
+            PrintString("[+] ", 0x0A);    
+            break;
+        case 1:
+            PrintString("[-] ", 0x0C);
+            break;
+    }
+
+    PrintString(str, 0x0F);
+}
