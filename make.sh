@@ -4,7 +4,7 @@ export PATH="$PATH:/usr/local/i386elfgcc/bin"
 
 BIN="Binaries"
 CCFLAGS="-ffreestanding -m32 -g"
-LDFILES="$BIN/entry.o $BIN/kernel.o $BIN/graphics.o"
+LDFILES="$BIN/entry.o $BIN/kernel.o $BIN/graphics.o $BIN/mem.o $BIN/idt.o"
 
 # Compiling ASM Files...
 echo -e "\n\e[33;40mCompiling ASM Files...\e[0m"
@@ -16,6 +16,8 @@ nasm -felf Kernel/entry.asm    -o $BIN/entry.o
 echo -e "\n\e[33;40mCompiling C Files...\e[0m"
 i386-elf-gcc $CCFLAGS -c Kernel/kernel.cpp     -o $BIN/kernel.o
 i386-elf-gcc $CCFLAGS -c Graphics/graphics.cpp -o $BIN/graphics.o
+i386-elf-gcc $CCFLAGS -c Interrupts/idt.cpp    -o $BIN/idt.o
+i386-elf-gcc $CCFLAGS -c Memory/mem.cpp        -o $BIN/mem.o
 
 # Linking Kernel Files...
 echo -e "\n\e[33;40mLinking Kernel Files...\e[0m"
