@@ -41,6 +41,48 @@ void PrintString(const CHAR* str, BYTE color)
     }
 }
 
+void IntToString(int value, char* buffer)
+{
+    char temp[11];
+    int i = 0;
+    int isNegative = 0;
+
+    if (value < 0) 
+    {
+        isNegative = 1;
+        value = -value;
+    }
+
+    do 
+    {
+        temp[i++] = (value % 10) + '0';
+        value /= 10;
+    } while (value > 0);
+
+    if (isNegative) 
+    {
+        temp[i++] = '-';
+    }
+
+    temp[i] = '\0';
+
+    int j;
+
+    for (j = 0; j < i; j++) 
+    {
+        buffer[j] = temp[i - j - 1];
+    }
+
+    buffer[j] = '\0';
+}
+
+void PrintInt(int value, BYTE color) 
+{
+    char buffer[11];
+    IntToString(value, buffer);
+    PrintString(buffer, color);
+}
+
 void Debug(const CHAR* str, int debug)
 {
     switch (debug)
