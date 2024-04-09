@@ -4,7 +4,7 @@
 
 void SetPixel(int x, int y, BYTE color)
 {
-    LPBYTE vidmem = (LPBYTE) 0xA0000;
+    LPBYTE vidmem = (LPBYTE) VIDEOMEM;
     
     vidmem[y * WSCREEN + x] = color;
 }
