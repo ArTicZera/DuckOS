@@ -8,3 +8,5 @@ _start:
         call    main
 
         jmp $
+
+%include "Interrupts/idt.asm"
