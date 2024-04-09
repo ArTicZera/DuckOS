@@ -1,44 +1,65 @@
 int cursorX = 0;
 int cursorY = 0;
 
-void DrawChar(BYTE* c, BYTE color)
+void DrawChar(BYTE* bitmap, BYTE color)
 {
-    int i = 0;
+    int x = 0;
 
-    for (int y = 0; y < HFONT; y++)
+    for (int i = 0; i < 24; i++) 
     {
-        for (int x = WFONT - 1; x >= 0; x--)
+        for (int j = 0; j < 2; j++) 
         {
-            if (c[y] & (1 << x))
+            for (int k = 7; k >= 0; k--) 
             {
-                SetPixel(i + cursorX, y + cursorY, color);
+                if ((bitmap[i * 2 + j] >> k) & 0x01) 
+                {
+                    SetPixel(x + cursorX, i + cursorY, color);
+                }
+                x++;
             }
-            i++;
         }
-        i = 0;
+        x = 0;
     }
 
-    cursorX += 8;
+    cursorX += 12;
 
-    if (cursorX >= 8 * 40)
+    if (cursorX >= 790)
     {
         cursorX = 0;
-        cursorY += 9;
+        cursorY += 24;
     }
+
 }
 
-void PrintString(const CHAR* str, BYTE color)
+void Print(const char* str, BYTE color)
 {
     for (int i = 0; str[i] != '\0'; i++)
     {
         if (str[i] == '\n')
         {
-            cursorX = -8;
-            cursorY += 9;
+            cursorX = 0;
+            cursorY += 24;
+
+            continue;
         }
 
-        DrawChar(ProggyCleanTT+(str[i]*8), color);
+        DrawChar(font + (2 * 24) * str[i], color);
     }
+}
+
+void Debug(const CHAR* str, int debug)
+{
+    switch (debug)
+    {
+        case 0:
+            Print("[+] ", 0x0A);    
+            break;
+        case 1:
+            Print("[-] ", 0x0C);
+            break;
+    }
+
+    Print(str, 0x0F);
 }
 
 void IntToString(int value, char* buffer)
@@ -80,20 +101,5 @@ void PrintInt(int value, BYTE color)
 {
     char buffer[11];
     IntToString(value, buffer);
-    PrintString(buffer, color);
-}
-
-void Debug(const CHAR* str, int debug)
-{
-    switch (debug)
-    {
-        case 0:
-            PrintString("[+] ", 0x0A);    
-            break;
-        case 1:
-            PrintString("[-] ", 0x0C);
-            break;
-    }
-
-    PrintString(str, 0x0F);
+    Print(buffer, color);
 }
