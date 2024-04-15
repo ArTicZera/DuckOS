@@ -1,0 +1,1 @@
+void outb(WORD Port, BYTE Value);
