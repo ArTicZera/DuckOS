@@ -3,30 +3,29 @@ int cursorY = 0;
 
 void DrawChar(BYTE* bitmap, BYTE color)
 {
-    int x = 0;
+    int i = 0;
 
-    for (int i = 0; i < 24; i++) 
+    for (int y = 0; y < 16; y++)
     {
-        for (int j = 0; j < 2; j++) 
+        for (int x = 7; x >= 0; x--)
         {
-            for (int k = 7; k >= 0; k--) 
+            if (bitmap[y] & (1 << x))
             {
-                if ((bitmap[i * 2 + j] >> k) & 0x01) 
-                {
-                    SetPixel(x + cursorX, i + cursorY, color);
-                }
-                x++;
+                SetPixel(i + cursorX, y + cursorY, color);
             }
+
+            i++;
         }
-        x = 0;
+
+        i = 0;
     }
 
-    cursorX += 12;
+    cursorX += 8;
 
-    if (cursorX >= 790)
+    if (cursorX >= 640)
     {
         cursorX = 0;
-        cursorY += 24;
+        cursorY += 16;
     }
 
 }
@@ -38,12 +37,12 @@ void Print(const char* str, BYTE color)
         if (str[i] == '\n')
         {
             cursorX = 0;
-            cursorY += 24;
+            cursorY += 16;
 
             continue;
         }
 
-        DrawChar(font + (2 * 24) * str[i], color);
+        DrawChar(isoFont + str[i] * 16, color);
     }
 }
 
