@@ -20,7 +20,7 @@ setup:
 
         ;Setup VESA 800x600
 	mov	ax, 0x4F02
-	mov	bx, 0x4103
+	mov	bx, 0x4101
 	int	0x10
 
         call    ReadSectors
