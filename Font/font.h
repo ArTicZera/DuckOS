@@ -1,5 +1,5 @@
 #define WFONT 8
-#define HFONT 8
+#define HFONT 16
 
 BYTE isoFont[] =
 {
