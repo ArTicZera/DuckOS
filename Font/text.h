@@ -5,9 +5,9 @@ void DrawChar(BYTE* bitmap, BYTE color)
 {
     int i = 0;
 
-    for (int y = 0; y < 16; y++)
+    for (int y = 0; y < HFONT; y++)
     {
-        for (int x = 7; x >= 0; x--)
+        for (int x = WFONT - 1; x >= 0; x--)
         {
             if (bitmap[y] & (1 << x))
             {
@@ -22,7 +22,7 @@ void DrawChar(BYTE* bitmap, BYTE color)
 
     cursorX += 8;
 
-    if (cursorX >= 640)
+    if (cursorX >= WSCREEN)
     {
         cursorX = 0;
         cursorY += 16;
@@ -37,12 +37,12 @@ void Print(const char* str, BYTE color)
         if (str[i] == '\n')
         {
             cursorX = 0;
-            cursorY += 16;
+            cursorY += HFONT;
 
             continue;
         }
 
-        DrawChar(isoFont + str[i] * 16, color);
+        DrawChar(isoFont + str[i] * HFONT, color);
     }
 }
 
