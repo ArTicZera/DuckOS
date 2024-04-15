@@ -1,6 +1,5 @@
 #include "../Include/stdint.h"
 #include "../Graphics/graphics.h"
-#include "../Font/font.h"
 #include "../Font/text.h"
 
 #include "../Interrupts/idt.h"
