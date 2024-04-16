@@ -1,1 +1,2 @@
-
+void InitKeyboard();
+void KeyboardHandler();
