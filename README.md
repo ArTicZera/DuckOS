@@ -6,6 +6,7 @@ DuckOS is a small protected mode operating system made in C and x86 Assembly. Th
 - ✅ **Entering Protected Mode**
 - ✅ **Fonts and Print Functions**
 - ✅ **Interrupts (IDT, ISR, IRQ)**
+- ✅ **Keyboard Driver**
 - ❌ **Memory Management**
 - ❌ **FAT Filesystem**
 - ❌ **Shell**
