@@ -29,7 +29,7 @@ echo -e "\n\e[33;40mLinking Kernel Files...\e[0m"
 i386-elf-ld -o $BIN/fullkernel.bin -Ttext 0x1000 $LDFILES --oformat binary
 
 # Mounting FolhaOS
-echo -e "\n\e[33;40mMounting FolhaOS...\e[0m"
+echo -e "\n\e[33;40mMounting DuckOS...\e[0m"
 cat $BIN/boot.bin $BIN/stg2.bin > $BIN/bootloader.bin
 cat $BIN/bootloader.bin $BIN/fullkernel.bin > DuckOS.img
 
