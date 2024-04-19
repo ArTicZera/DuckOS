@@ -70,6 +70,9 @@ void Debug(const CHAR* str, int debug)
         case 1:
             Print("[-] ", 0x0C);
             break;
+        case 2:
+            Print("[?] ", 0x0B);
+            break;
     }
 
     Print(str, 0x0F);
@@ -114,5 +117,22 @@ void PrintInt(int value, BYTE color)
 {
     char buffer[11];
     IntToString(value, buffer);
+    Print(buffer, color);
+}
+
+void PrintHex(int value, BYTE color)
+{
+    char buffer[9];
+
+    Print("0x", color);
+
+    for (int i = 7; i >= 0; i--) 
+    {
+        buffer[i] = "0123456789ABCDEF"[value & 0xF];
+        value >>= 4;
+    }
+
+    buffer[8] = '\0';
+
     Print(buffer, color);
 }
