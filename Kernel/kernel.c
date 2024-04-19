@@ -20,4 +20,7 @@ void main(void)
 
     InitKeyboard();
     Debug("Keyboard Driver Started!\n", 0);
+
+    ShowCPUInfo();
+    ShowPCIDevices();
 }
