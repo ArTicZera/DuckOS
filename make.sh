@@ -4,7 +4,7 @@ export PATH="$PATH:/usr/local/i386elfgcc/bin"
 
 BIN="Binaries"
 CCFLAGS="-ffreestanding -m32 -g"
-LDFILES="$BIN/entry.o $BIN/kernel.o $BIN/ports.o $BIN/graphics.o $BIN/text.o $BIN/mem.o $BIN/asmidt.o $BIN/idt.o $BIN/timer.o $BIN/keyboard.o"
+LDFILES="$BIN/entry.o $BIN/kernel.o $BIN/ports.o $BIN/graphics.o $BIN/text.o $BIN/mem.o $BIN/asmidt.o $BIN/idt.o $BIN/timer.o $BIN/keyboard.o $BIN/cpu.o $BIN/pci.o"
 
 # Compiling ASM Files...
 echo -e "\n\e[33;40mCompiling ASM Files...\e[0m"
@@ -23,6 +23,8 @@ i386-elf-gcc $CCFLAGS -c Font/text.c         -o $BIN/text.o
 i386-elf-gcc $CCFLAGS -c Include/ports.c     -o $BIN/ports.o
 i386-elf-gcc $CCFLAGS -c Timer/timer.c       -o $BIN/timer.o
 i386-elf-gcc $CCFLAGS -c Drivers/keyboard.c  -o $BIN/keyboard.o
+i386-elf-gcc $CCFLAGS -c Hardware/cpu.c      -o $BIN/cpu.o
+i386-elf-gcc $CCFLAGS -c Hardware/pci.c      -o $BIN/pci.o
 
 # Linking Kernel Files...
 echo -e "\n\e[33;40mLinking Kernel Files...\e[0m"
