@@ -23,6 +23,7 @@ i386-elf-gcc $CCFLAGS -c Font/text.c         -o $BIN/text.o
 i386-elf-gcc $CCFLAGS -c Include/ports.c     -o $BIN/ports.o
 i386-elf-gcc $CCFLAGS -c Timer/timer.c       -o $BIN/timer.o
 i386-elf-gcc $CCFLAGS -c Drivers/keyboard.c  -o $BIN/keyboard.o
+i386-elf-gcc $CCFLAGS -c Drivers/mouse.c     -o $BIN/mouse.o
 i386-elf-gcc $CCFLAGS -c Hardware/cpu.c      -o $BIN/cpu.o
 i386-elf-gcc $CCFLAGS -c Hardware/pci.c      -o $BIN/pci.o
 
