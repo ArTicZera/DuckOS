@@ -3,6 +3,7 @@
 #include "../Font/text.h"
 #include "../Timer/timer.h"
 #include "../Drivers/keyboard.h"
+#include "../Drivers/mouse.h"
 #include "../Hardware/cpu.h"
 #include "../Hardware/pci.h"
 
