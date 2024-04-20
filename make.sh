@@ -4,7 +4,7 @@ export PATH="$PATH:/usr/local/i386elfgcc/bin"
 
 BIN="Binaries"
 CCFLAGS="-ffreestanding -m32 -g"
-LDFILES="$BIN/entry.o $BIN/kernel.o $BIN/ports.o $BIN/graphics.o $BIN/text.o $BIN/mem.o $BIN/asmidt.o $BIN/idt.o $BIN/timer.o $BIN/keyboard.o $BIN/cpu.o $BIN/pci.o"
+LDFILES="$BIN/entry.o $BIN/kernel.o $BIN/ports.o $BIN/graphics.o $BIN/text.o $BIN/mem.o $BIN/asmidt.o $BIN/idt.o $BIN/timer.o $BIN/keyboard.o $BIN/mouse.o $BIN/cpu.o $BIN/pci.o"
 
 # Compiling ASM Files...
 echo -e "\n\e[33;40mCompiling ASM Files...\e[0m"
