@@ -1,5 +1,6 @@
 # 🦆 About DuckOS
 DuckOS is a small protected mode operating system made in C and x86 Assembly. This project is being developed as a way to learn more about OSs.
+![](Screenshot.png)
 
 # 🛠️ Current Progress
 - ✅ **Global Descriptor Table (GDT)**
